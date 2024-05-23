@@ -22,13 +22,12 @@ export function useCancelAppointment() {
   // TODO: replace with mutate function
 
   const { mutate } = useMutation({
-    mutationFn: (appointment: Appointment) =>
-      removeAppointmentUser(appointment),
+    mutationFn: removeAppointmentUser,
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: [queryKeys.appointments],
       });
-      toast({ title: "cacle success!", status: "success" });
+      toast({ title: "Cancle success!", status: "warning" });
     },
   });
 
